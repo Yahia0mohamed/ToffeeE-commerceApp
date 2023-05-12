@@ -3,7 +3,6 @@ import displayPackage.*;
 public abstract class User{
     private Catalog ItemList;
     private Data info;
-
     /**
      * this function is to register a new user to the system
      */
