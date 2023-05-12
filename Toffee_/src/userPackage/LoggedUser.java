@@ -1,7 +1,6 @@
 package userPackage;
 import displayPackage.*;
 public class LoggedUser extends User{
-    private Data Info;
     private OrderList orders;
     private int LPoints;
     private String customerID;
