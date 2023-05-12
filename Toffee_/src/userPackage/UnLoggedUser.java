@@ -1,4 +1,5 @@
 package userPackage;
+import java.util.Scanner;
 
 public class UnLoggedUser extends User {
     /**
@@ -6,7 +7,12 @@ public class UnLoggedUser extends User {
      */
     @Override
     public void login() {
-
+        Scanner sin=new Scanner(System.in);
+        System.out.print("enter the email:");
+        String email=sin.nextLine();
+        System.out.println("enter the password");
+        String password=sin.nextLine();
+        sin.close();
     }
 
     /**

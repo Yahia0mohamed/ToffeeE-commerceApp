@@ -8,15 +8,15 @@ public interface GeneralUser {
     /**
      * this function is for any user to login
      */
-    void login();
+    public void login();
 
     /**
      * this function is to register a new user to the system
      */
-    Data registration();
+    public Data registration();
 
     /**
      * this function views the user the catalog of items
      */
-    void viewCatalog();
+    public void viewCatalog();
 }
