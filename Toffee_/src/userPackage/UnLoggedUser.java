@@ -1,6 +1,8 @@
 package userPackage;
 import java.util.Scanner;
 
+import DataHandeler.SQLDataBase;
+
 public class UnLoggedUser extends User {
     /**
      * this function is for any user to login
@@ -12,6 +14,9 @@ public class UnLoggedUser extends User {
         String email=sin.nextLine();
         System.out.println("enter the password");
         String password=sin.nextLine();
+        SQLDataBase db=new SQLDataBase();
+        db.loadUser(email, password);
+        
         sin.close();
     }
 
