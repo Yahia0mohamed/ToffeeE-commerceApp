@@ -1,24 +1,26 @@
 package displayPackage;
-import java.util.ArrayList;
 
-public abstract class Item {
+public class Item {
     private String name;
     private float price;
     private float discountVal;
-    private boolean discounted;
-    ArrayList<String> catagory = new ArrayList<String>();
     private int storedNum;
     private short loyaltyPoints;
     private String itemID;
-    
+    public Item(){}
+    public Item(String n,float p,String id,float d,int s){
+        this.name=n;
+        this.price=p;
+        this.itemID=id;
+        this.discountVal=d;
+        this.storedNum=s;
+    }
     public String getName(){return name;}
     public void setName(String name){this.name=name;}
     public float getPrice(){return price;}
     public void setPrice(float price){this.price=price;}
     public float getDiscount(){return discountVal;}
-    public void setDiscount(float discount){this.discountVal=discountVal;}
-    public ArrayList<String> getCatagoty(){return catagory;}
-    public void setCatagory( ArrayList<String> catagory){this.catagory=catagory;}
+    public void setDiscount(float discount){this.discountVal=discount;}
     public boolean isDiscounted(){
         int p=0;
         price=price*discountVal;
@@ -38,5 +40,11 @@ public abstract class Item {
     }
     public short getLoyaltyPoints() {return loyaltyPoints;}
     public void changeLoyaltyPoints(){//
+    }
+    public void setID(String id){
+        this.itemID=id;
+    }
+    public String getID(){
+        return itemID;
     }
 }

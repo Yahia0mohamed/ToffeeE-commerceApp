@@ -1,58 +1,58 @@
 package userPackage;
-
-/**
- * this class is to make Users data abstract and separate from the reach
- */
 public class Data {
+    private String Id;
+    private String Name;
     private String Email;
     private String pass;
     private String Address;
-
-    /**
-     * this function get the email from the object
-     * @return String
-     */
-    public String getEmail() {
-        return Email;
+    private String phoneNum;
+    public Data(){}
+    public Data(String Name,String Email,String Address,String pass, String phoneNum,String id){
+        this.Name=Name;
+        this.Email=Email;
+        this.Address=Address;
+        this.pass=pass;
+        this.phoneNum=phoneNum;
+        this.Id=id;
     }
-
-    /**
-     * sets the email in the object
-     * @param email String to handel the email
-     */
+    public void setId(String id) {
+        Id=id;
+    }
+    public String getId() {
+        return Id;
+    }
+    public void setPhoneNum(String PhoneNum) {
+        phoneNum=PhoneNum;
+    }
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+    public void setName(String name) {
+        Name = name;
+    }
+    public String getName() {
+        return Name;
+    }
     public void setEmail(String email) {
         Email = email;
     }
-
-    /**
-     * this function gets the password from the object
-     * @return String
-     */
+    public String getEmail() {
+        return Email;
+    }
+    public void setPass(String Pass) {
+        pass = Pass;
+    }
     public String getPass() {
         return pass;
     }
-
-    /**
-     * Sets the password in the object
-     * @param pass String to handel the password
-     */
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setAddress(String address) {
+        Address = address;
     }
-
-    /**
-     * this function gets the address from the object
-     * @return String
-     */
     public String getAddress() {
         return Address;
     }
-
-    /**
-     * Sets the address in the object
-     * @param address String
-     */
-    public void setAddress(String address) {
-        Address = address;
+    public String ReturnInfo(){
+        return "The full info is (" +"Name : "+Name+", E-mail : "+Email+", Address: " +Address
+                +"pass : "+pass+"Phone Number : " +phoneNum+". ";
     }
 }

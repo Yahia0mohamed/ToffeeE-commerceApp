@@ -7,7 +7,8 @@ public class Order {
     private Payment paymentType;
     private float price;
     private String address;
-    private myCart Cart;
+    private boolean delivered;
+    // private MyCart Cart;//cart order
     public boolean getP_State(){return PaymentState; }
     public Payment getP_Type(){return paymentType;}
     public String getAddress(){return address;}
@@ -18,7 +19,13 @@ public class Order {
         if(choice == 1){
             paymentType=new Cash();
         }
-}
+    }
+    public float getPrice(){
+        return price;
+    }
+    public boolean getState(){
+        return delivered;
+    }
     Scanner input=new Scanner(System.in);
     public void cancelOrder(){
         System.out.println("Do you want to confirm this order?\n1)Yes  2)No");
