@@ -1,24 +1,21 @@
 package displayPackage;
-import java.util.HashMap;
-
-import DataHandeler.SQLDataBase;
-
 import java.util.ArrayList;
 
 public class Catalog {
-    ArrayList<Item> Orders = new ArrayList<Item>();
-    HashMap<String,Item> items=new HashMap<String,Item>();
-    SQLDataBase mydb;
-    public void refreshCatalog (){
-        
+    ArrayList<Item> items = new ArrayList<Item>();
+    public void viewItems(){
+        for (int i = 0; i < items.size(); i++) {
+            System.out.println((i+1)+")");
+            System.out.println(items.get(i).itemInfo());
+            System.out.println("----------------------------------------------------");
+        }
     }
-    public void viewItems(){}
-    //public Item getItem(int id){}
-    //public void viewItemDetails(int id){}
-    public void sortByPrice(){}
-    //public void loadCataloge(Item[]);
-    public void addItem(){}
-    public void deleteItem(){}
-    public void viewCatagories(){}
-    public void loadWithCatigoy(String catagory){}
+    public Item getItem(int index){
+        return items.get(index);
+    }
+    public void loadCataloge(ArrayList<Item> i){
+        for (int j = 0; j < i.size(); j++) {
+            items.add(i.get(j));
+        }
+    }
 }

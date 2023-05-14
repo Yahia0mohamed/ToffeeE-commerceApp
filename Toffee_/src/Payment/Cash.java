@@ -1,6 +1,5 @@
 package Payment;
-import java.lang.String;
-import java.util.Scanner;
+import java.util.*;
 
 public class Cash implements Payment{
     Scanner input=new Scanner(System.in);
@@ -13,17 +12,13 @@ public class Cash implements Payment{
         setPhoneNum(n);
         System.out.println("Do you want to checkout \n(1)Yes  (2)No");
         int c =input.nextInt();
-        checkOut(c);
-}
-
-    public boolean checkOut(int x) {
-        x=0;
-        if(x==1){
-            return true;
+        if(c==1){
+            System.out.println("save purchase");
+            return;
+        }else{
+            System.exit(0);
         }
-        return false;
-    }
-
+}
     protected String phoneNum;
     protected String address;
 

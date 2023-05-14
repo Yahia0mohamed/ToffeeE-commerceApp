@@ -6,7 +6,8 @@ public class myCart {
     private HashMap<Item,Integer> Items=new HashMap<Item,Integer>();
     
     public void addToCart(Item i,int n){
-        System.out.print("enter the quantity");
+        System.out.println(i.getName());
+        System.out.print("enter the quantity: ");
         Scanner sin=new Scanner(System.in);
         n=sin.nextInt();
         Items.put(i,n);
