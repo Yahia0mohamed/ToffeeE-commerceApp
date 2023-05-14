@@ -6,14 +6,21 @@ public class Data {
     private String pass;
     private String Address;
     private String phoneNum;
+    public Data (Data d){
+        this.Name=d.Name;
+        this.Email=d.Email;
+        this.Address=d.Address;
+        this.pass=d.pass;
+        this.phoneNum=d.phoneNum;
+        this.Id=d.Id;
+    }
     public Data(){}
-    public Data(String Name,String Email,String Address,String pass, String phoneNum,String id){
+    public Data(String Name,String Email,String Address,String pass, String phoneNum){
         this.Name=Name;
         this.Email=Email;
         this.Address=Address;
         this.pass=pass;
         this.phoneNum=phoneNum;
-        this.Id=id;
     }
     public void setId(String id) {
         Id=id;
@@ -52,7 +59,6 @@ public class Data {
         return Address;
     }
     public String ReturnInfo(){
-        return "The full info is (" +"Name : "+Name+", E-mail : "+Email+", Address: " +Address
-                +"pass : "+pass+"Phone Number : " +phoneNum+". ";
+        return "The full info is (" +"Name : "+Name+", E-mail : "+Email+", Address: " +Address+" Phone Number : " +phoneNum+")";
     }
 }

@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Order {
     private boolean PaymentState;
     private Payment paymentType;
-    private float price;
+    private double price;
     private String address;
     private boolean delivered;
     // private MyCart Cart;//cart order
@@ -20,8 +20,11 @@ public class Order {
             paymentType=new Cash();
         }
     }
-    public float getPrice(){
+    public double getPrice(){
         return price;
+    }
+    public void setPrice(Double p){
+        this.price=p;
     }
     public boolean getState(){
         return delivered;

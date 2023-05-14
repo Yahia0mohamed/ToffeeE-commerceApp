@@ -17,15 +17,14 @@ public class SQLDataBase {
         String username="MyProject";
         String password="1234";
         try {
-            this.DataBase=DriverManager.getConnection(URL, username, password); 
-            System.out.println("yes we did it");
+            this.DataBase=DriverManager.getConnection(URL, username, password);
         } catch (SQLException e) {
             System.out.println("nooo error");
         }
     }
     /**
      * this function saves users data in database
-     * @param d
+     * @param d data to be saved
      */
     public void saveUser(Data d){
         String name=d.getName();
@@ -42,6 +41,7 @@ public class SQLDataBase {
             sql.setString(4, email);
             sql.setString(5, pass);
             sql.setString(6, Phone);
+            System.out.println("one user added");
             sql.executeUpdate();
         }catch(SQLException e){
             System.out.println("none changed");
@@ -49,16 +49,17 @@ public class SQLDataBase {
     }
     /**
      * this function saves the order important information
-     * @param cID
-     * @param o
+     * @param cID the customer id
+     * @param o order object
      */
     public void saveOrder(String cID,Order o){
         String Query="insert into Orders(customerID,price,delivered)values(?,?,?)";
         try{
             PreparedStatement sql=DataBase.prepareStatement(Query);
             sql.setString(1, cID);
-            sql.setFloat(2, o.getPrice());
+            sql.setDouble(2, o.getPrice());
             sql.setBoolean(3, o.getState());
+            System.out.println("order is added");
             sql.executeUpdate();
         }catch(SQLException e){
             System.out.println("none changed");
@@ -66,9 +67,9 @@ public class SQLDataBase {
     }
     /**
      * this functon is used to authenticate the data
-     * @param em
-     * @param pass
-     * @return
+     * @param em the user email
+     * @param pass the user password
+     * @return data of the user if found
      */
     public Data loadUser(String em,String pass){
         String Query="select * from Users where Users.email=? and Users.password=?";
@@ -91,10 +92,14 @@ public class SQLDataBase {
                 return User;
             }
         }catch(SQLException e){
-            System.out.println("none changed");
+            System.out.println("not found");
         }
         return new Data();
     }
+    /**
+     * this function loads the cataloge from our data base
+     * @return array of items
+     */
     public ArrayList<Item> loadCataloge(){
         String Query="select * from items";
         try{

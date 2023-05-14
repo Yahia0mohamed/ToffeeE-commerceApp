@@ -1,11 +1,17 @@
 package displayPackage;
 import java.util.HashMap;
+
+import DataHandeler.SQLDataBase;
+
 import java.util.ArrayList;
 
 public class Catalog {
     ArrayList<Item> Orders = new ArrayList<Item>();
     HashMap<String,Item> items=new HashMap<String,Item>();
-    public void refreshCatalog (){}
+    SQLDataBase mydb;
+    public void refreshCatalog (){
+        
+    }
     public void viewItems(){}
     //public Item getItem(int id){}
     //public void viewItemDetails(int id){}

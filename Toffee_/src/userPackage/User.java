@@ -6,11 +6,11 @@ public abstract class User{
     /**
      * this function is to register a new user to the system
      */
-    public abstract void login();
+    public abstract LoggedUser login();
     /**
      * this function is to register a new user to the system
      */
-    public abstract Data registration();
+    public abstract void registration();
     /**
      * this function views the user the catalog of items
      */

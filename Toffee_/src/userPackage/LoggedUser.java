@@ -1,24 +1,31 @@
 package userPackage;
+import DataHandeler.SQLDataBase;
 import displayPackage.*;
 public class LoggedUser extends User{
-    private OrderList orders;
-    private int LPoints;
-    private String customerID;
+    private SQLDataBase db=new SQLDataBase();
+    private Data info;
+    private Catalog viewCatalog;
 
+    public LoggedUser(Data d){
+        this.info=d;
+    }
+    public Data getData(){
+        return info;
+    }
     /**
      * this function is for any user to login
      */
     @Override
-    public void login() {
-        return;
+    public LoggedUser login() {
+        return new LoggedUser(new Data());
     }
 
     /**
      * this function is to register a new user to the system
      */
     @Override
-    public Data registration() {
-        return new Data();
+    public void registration() {
+        
     }
 
     /**
@@ -26,6 +33,6 @@ public class LoggedUser extends User{
      */
     @Override
     public void viewCatalog() {
-
+        
     }
 }
