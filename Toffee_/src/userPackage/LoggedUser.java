@@ -35,4 +35,7 @@ public class LoggedUser extends User{
     public void viewCatalog() {
         
     }
+    public void addToCart(){
+        //
+    }
 }

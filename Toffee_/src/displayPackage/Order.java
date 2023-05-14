@@ -1,6 +1,7 @@
 package displayPackage;
 import Payment.*;
 import java.util.Scanner;
+import java.util.HashMap;
 
 public class Order {
     private boolean PaymentState;
@@ -8,6 +9,7 @@ public class Order {
     private double price;
     private String address;
     private boolean delivered;
+    private myCart cart;
     // private MyCart Cart;//cart order
     public boolean getP_State(){return PaymentState; }
     public Payment getP_Type(){return paymentType;}
@@ -25,6 +27,9 @@ public class Order {
     }
     public void setPrice(Double p){
         this.price=p;
+    }
+    public void calculatePrice(){
+        HashMap<Item,Integer> Items=cart.getCart();
     }
     public boolean getState(){
         return delivered;
