@@ -1,18 +1,16 @@
 package userPackage;
 
-import java.util.Scanner;
-
-public interface User{
+public abstract class User{
     /**
      * this function is to register a new user to the system
      */
-    public LoggedUser login();
+    public abstract LoggedUser login();
     /**
      * this function is to register a new user to the system
      */
-    public void registration();
+    public abstract void registration();
     /**
      * this function views the user the catalog of items
      */
-    public void viewCatalog(Scanner sin);
+    public abstract void viewCatalog();
 }

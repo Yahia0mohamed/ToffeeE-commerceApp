@@ -4,10 +4,11 @@ import java.util.*;
 
 import DataHandeler.SQLDataBase;
 
-public class UnLoggedUser implements User {
+public class UnLoggedUser extends User {
     private SQLDataBase db=new SQLDataBase();
     Scanner sin = new Scanner(System.in);
     private Catalog viewCatalog;
+    
     public UnLoggedUser(){
         viewCatalog=new Catalog();
         viewCatalog.loadCataloge(db.loadCataloge());
@@ -27,6 +28,7 @@ public class UnLoggedUser implements User {
             System.out.println("wrong password or email");
             return login();
         }else{
+            System.out.println("logged in completed");
             return new LoggedUser(t);
         }
     }
@@ -53,18 +55,17 @@ public class UnLoggedUser implements User {
      * this function views the user the catalog of items
      */
     @Override
-    public void viewCatalog(Scanner sin) {
+    public void viewCatalog() {
         viewCatalog.viewItems();
         System.out.println("1)Register\n2)login\n3)exit");
         int d=sin.nextInt();
         if(d==1){
-            sin.close();
+            sin.nextLine();
             registration();
         }else if(d==2){
-            sin.close();
+            sin.nextLine();
             login();
         }else{
-            sin.close();
             System.exit(0);
         }
     }

@@ -4,12 +4,13 @@ import DataHandeler.SQLDataBase;
 import displayPackage.*;
 
 
-public class LoggedUser implements User{
+public class LoggedUser extends User{
     private SQLDataBase db=new SQLDataBase();
     private Data info;
     private Catalog viewCatalog;
     private myCart cart;
     private Order myOrder;
+    Scanner sin=new Scanner(System.in);
 
     public LoggedUser(){
         viewCatalog=new Catalog();
@@ -42,21 +43,26 @@ public class LoggedUser implements User{
     public void registration() {
         //
     }
+    public void setCart(myCart cart) {
+        this.cart = cart;
+    }
 
-    /**
+        /**
      * this function views the user the catalog of items
      */
     @Override
-    public void viewCatalog(Scanner sin) {
+    public void viewCatalog() {
         int d;
         int i;
         while(true){
             viewCatalog.viewItems();
             System.out.println("1)add an item to cart\n2)proceed to making order\n3)exit");
             d=sin.nextInt();
+            sin.nextLine();
             if(d==1){
                 System.out.println("which item do you want:");
                 i=sin.nextInt();
+                sin.nextLine();
                 addToCart(i);
             }else if(d==2){
                 makeOrder();
@@ -70,9 +76,16 @@ public class LoggedUser implements User{
      * @param i index
      */
     public void addToCart(int i){
-        cart.addToCart(viewCatalog.getItem(i-1), i);
-        System.out.println("item added");
-        return;
+        System.out.println(viewCatalog.getItem(i-1).getName());
+        System.out.print("enter the quantity: ");
+        int am=sin.nextInt();
+        if(am>50 && am<=0){
+            System.out.println("not valid");
+            addToCart(i); 
+        }else{
+            cart.addToCart(viewCatalog.getItem(i-1), am);
+            System.out.println("item added");
+        }
     }
     /**
      * this 

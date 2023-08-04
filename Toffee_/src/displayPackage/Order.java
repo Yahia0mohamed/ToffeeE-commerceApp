@@ -10,6 +10,7 @@ public class Order {
     private String address;
     private boolean delivered;
     private myCart cart;
+    private String phoneString;
     private Scanner sin=new Scanner(System.in);
 
     /**
@@ -33,6 +34,12 @@ public class Order {
      * get the address of the order
      * @return
      */
+    public void setPhoneString(String phoneString) {
+        this.phoneString = phoneString;
+    }
+    public String getPhoneString() {
+        return phoneString;
+    }
     public String getAddress(){return address;}
     /**
      * sets the address of the order
@@ -86,7 +93,6 @@ public class Order {
         if(o==1){
             choosePaymentMethod();
             payment.startPayment();
-            return;
         }else{
             System.exit(0);
         }

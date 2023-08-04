@@ -14,7 +14,6 @@ public class Cash implements Payment{
         int c =input.nextInt();
         if(c==1){
             System.out.println("save purchase");
-            return;
         }else{
             System.exit(0);
         }

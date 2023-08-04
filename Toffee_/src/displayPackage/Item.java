@@ -2,7 +2,7 @@ package displayPackage;
 
 public class Item {
     private String name;
-    private float price;
+    private double price;
     private float discountVal;
     private int storedNum;
     private short loyaltyPoints;
@@ -29,12 +29,12 @@ public class Item {
      * this function returns the price of the item
      * @return the item price
      */
-    public float getPrice(){return price;}
+    public double getPrice(){return price;}
     /**
      * this item sets the price of the item
      * @param price the item price
      */
-    public void setPrice(float price){this.price=price;}
+    public void setPrice(Double price){this.price=price;}
     /**
      * this get the discount value over an item
      * @return

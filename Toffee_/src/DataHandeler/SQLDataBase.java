@@ -35,7 +35,7 @@ public class SQLDataBase {
         String Query="insert into Users(customerID,name,address,email,password,phoneNUM)values(?,?,?,?,?,?)";
         try{
             PreparedStatement sql=DataBase.prepareStatement(Query);
-            sql.setString(1,getAlphaNumericString(10) );
+            sql.setString(1,getAlphaNumericString(10));
             sql.setString(2, name);
             sql.setString(3, address);
             sql.setString(4, email);
@@ -53,12 +53,14 @@ public class SQLDataBase {
      * @param o order object
      */
     public void saveOrder(String cID,Order o){
-        String Query="insert into Orders(customerID,price,delivered)values(?,?,?)";
+        String Query="insert into Orders(customerID,price,delivered,address,phoneNUM)values(?,?,?,?,?)";
         try{
             PreparedStatement sql=DataBase.prepareStatement(Query);
             sql.setString(1, cID);
             sql.setDouble(2, o.getPrice());
             sql.setBoolean(3, o.getState());
+            sql.setString(4, o.getP_Type().getِAddress());
+            sql.setString(5, o.getP_Type().getPhoneNum());
             System.out.println("order is added");
             sql.executeUpdate();
         }catch(SQLException e){
